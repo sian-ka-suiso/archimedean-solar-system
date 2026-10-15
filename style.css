@@ -1,0 +1,32 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  canvas {
+    display: block;
+  }
+  
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+
+.title_text {
+  font-family: "Roboto Slab", serif;
+  background: linear-gradient(90deg, #ff3535 0%, #ff984a 25%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 10vh;
+  font-weight: bold;
+  margin-top: 2%;
+  margin-bottom: 0;
+}
+
+.body_text {
+  font-family: "PT Serif", serif;
+  color: beige;
+  font-size: 5vh;
+}
