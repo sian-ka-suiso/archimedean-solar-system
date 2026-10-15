@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="intro">
-      <p>Drawing the <span style="color: #FF3F0B;">Solar System</span> with the Archimedean Spiral</p>
+      <p>Drawing the <span class="intro_highlight">Solar System</span> with the Archimedean Spiral</p>
     </div>
     <main>
       <p class="title_text">Drawing the <span style="color: #FF3F0B;">Solar System</span> with the Archimedean Spiral</p>
@@ -37,10 +37,11 @@
 
         const intro = document.getElementById('intro');
         if (!intro) return;
+        setTimeout(() => intro.classList.add('highlight'), 450);
         setTimeout(() => {
           intro.classList.add('fade-out');
           intro.addEventListener('transitionend', () => intro.remove(), { once: true });
-        }, 1500);
+        }, 1800);
       }
 
       window.addEventListener('pageshow', () => {

@@ -27,6 +27,15 @@ html, body {
   cursor: default;
 }
 
+#intro .intro_highlight {
+  color: #fff;
+  transition: color 0.45s ease;
+}
+
+#intro.highlight .intro_highlight {
+  color: #FF3F0B;
+}
+
 #intro.fade-out {
   opacity: 0;
   pointer-events: none;
