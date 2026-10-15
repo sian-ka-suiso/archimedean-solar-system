@@ -1,10 +1,17 @@
 let angle = 0;
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowWidth);
+  const w = document.documentElement.clientWidth;
+  canvas = createCanvas(w, w);
   canvas.position(0,0);
   canvas.style('z-index','-1');
   background(0);
+}
+
+// ウィンドウサイズ変更時にキャンバスを合わせる
+function windowResized() {
+  const w = document.documentElement.clientWidth;
+  resizeCanvas(w, w);
 }
 
 function draw() {
