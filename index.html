@@ -1,25 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playwrite+BE+VLG:wght@100..400&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <meta charset="utf-8" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div id="intro">
+      <p>Drawing the Solar System with the Archimedean Spiral</p>
+    </div>
     <main>
-      <div class="container">
-        <!-- <p class="title_text">Solar system <br/> Designed with Archimedean Spiral</p>
-        <p class="body_text">The spiral structure is intertwined with the natural world.</p> -->
-      </div>
+      <p class="title_text">Drawing the Solar System with the Archimedean Spiral.</p>
+      <p class="body_text">The spiral structure is intertwined with the natural world.</p>
     </main>
     <script src="sketch.js"></script>
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      function scrollToCenter(tries = 60) {
+        const canvas = document.querySelector('canvas');
+        if (!canvas || canvas.offsetHeight === 0) {
+          if (tries > 0) requestAnimationFrame(() => scrollToCenter(tries - 1));
+          return;
+        }
+        const top = (canvas.offsetHeight - window.innerHeight) / 2;
+        window.scrollTo(0, Math.max(0, top));
+
+        const intro = document.getElementById('intro');
+        if (!intro) return;
+        setTimeout(() => {
+          intro.classList.add('fade-out');
+          intro.addEventListener('transitionend', () => intro.remove(), { once: true });
+        }, 1500);
+      }
+
+      window.addEventListener('pageshow', () => {
+        setTimeout(() => scrollToCenter(), 0);
+      });
+    </script>
   </body>
 </html>

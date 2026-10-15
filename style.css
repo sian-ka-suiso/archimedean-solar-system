@@ -9,29 +9,61 @@ html, body {
     display: block;
   }
 
-main {
-  width: 100vw;
+/* 読み込み時イントロ画面 */
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  padding: 0 16px;
+  transition: opacity 1s ease;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+#intro.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .title_text {
-  font-family: "Roboto Slab", serif;
-  background: linear-gradient(90deg, #ff3535 0%, #ff984a 25%, #ffffff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 2%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: fit-content;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0 10px;
   margin-bottom: 0;
 }
 
 .body_text {
-  font-family: "PT Serif", serif;
-  color: beige;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 1em;
+  display: inline-block;
+  width: fit-content;
+  font-family: "Noto Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0 10px;
   font-size: 16px;
+  font-weight: 200;
+  margin-top: 0;
 }
